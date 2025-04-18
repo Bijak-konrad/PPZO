@@ -23,7 +23,6 @@ class Program
             program = Console.ReadLine();
         } while (program != "1" && program != "2" && program != "3" && program != "/");
 
-
         switch (program)
         {
             case "1":
@@ -39,28 +38,26 @@ class Program
                 Console.Write("Podaj druga liczbe: ");
                 y = PodajLiczbe();
 
-                switch (operacja)
+                if (operacja == "+")
                 {
-                    case "+":
-                        wynik = x + y;
-                        break;
-
-                    case "-":
-                        wynik = x - y;
-                        break;
-
-                    case "*":
-                        wynik = x * y;
-                        break;
-
-                    case "/":
-                        while (y == 0)
-                        {
-                            Console.WriteLine("Nie mozna dzielic przez 0, podaj druga liczbe");
-                            y = PodajLiczbe();
-                        }
-                        wynik = x / y;
-                        break;
+                    wynik = x + y;
+                }
+                else if (operacja == "-")
+                {
+                    wynik = x - y;
+                }
+                else if (operacja == "*")
+                {
+                    wynik = x * y;
+                }
+                else if (operacja == "/")
+                {
+                    while (y == 0)
+                    {
+                        Console.WriteLine("Nie mozna dzielic przez 0, podaj drugą liczbe:");
+                        y = PodajLiczbe();
+                    }
+                    wynik = x / y;
                 }
 
                 Console.WriteLine($"Wynik: {wynik}");
@@ -80,12 +77,12 @@ class Program
                     if (operacja == "c")
                     {
                         wynik = temp * 1.8 + 32;
-                        Console.WriteLine($"{temp}°C = {wynik:2F}°F");
+                        Console.WriteLine($"{temp}°C = {wynik:F2}°F");
                     }
                     else
                     {
                         wynik = (temp - 32) / 1.8;
-                        Console.WriteLine($"{temp}°F = {wynik:2F}°C");
+                        Console.WriteLine($"{temp}°F = {wynik:F2}°C");
                     }
                     break;
                 }
