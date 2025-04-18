@@ -1,26 +1,10 @@
 def main(): 
- 
     program = input("Wybierz program: kalkulator [1], konwerter [2], srednia [3]\n")
     while program not in ("1", "2", "3"):
         program = input("Nieprawidlowy program, wybierz ponownie: ")
  
     match program:
         case "1":
-            def dodawanie(a, b):
-                return a + b
- 
-            def odejmowanie(a, b):
-                return a - b
- 
-            def mnozenie(a, b):
-                return a * b
- 
-            def dzielenie(a, b):
-                while b == 0:
-                    print("Nie mozna dzielic przez 0")
-                    b = float(input("Podaj druga liczbe: "))
-                return a / b;
- 
             operacja = input("Podaj operacje: [+], [-], [*], [/]\n")
             while operacja not in ("+", "-", "*", "/"):
                 operacja = input("Nieprawidlowa operacja, wybierz ponownie: ")
@@ -29,13 +13,16 @@ def main():
             y = float(input("Podaj druga liczbe: "))
  
             if operacja == "+":
-                wynik = dodawanie(x, y)
+                wynik = x + y
             elif operacja == "-":
-                wynik = odejmowanie(x, y)
+                wynik = x - y
             elif operacja == "*":
-                wynik = mnozenie(x, y)
+                wynik = x * y
             elif operacja == "/":
-                wynik = dzielenie(x, y)
+                while y == 0:
+                    print("Nie mozna dzielic przez 0")
+                    y = float(input("Podaj druga liczbe: "))
+                wynik = x / y;
  
             print(f"Wynik: {wynik}")
         
@@ -54,10 +41,10 @@ def main():
             
             if operacja == "c":
                 wynik = naFarenheit(temp)
-                print(f"{temp}°C = {wynik}°F")
+                print(f"{temp}°C = {wynik:.2f}°F")
             elif operacja == "f":
                 wynik = naCelcjusz(temp)
-                print(f"{temp}°F = {wynik}°C")
+                print(f"{temp}°F = {wynik:.2f}°C")
             
         case "3":
             ileOcen = int(input("Podaj liczbe ocen: "))
