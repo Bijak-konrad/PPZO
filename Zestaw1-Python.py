@@ -37,7 +37,7 @@ def main():
             elif operacja == "/":
                 wynik = dzielenie(x, y)
  
-            print(f"Wynik = {wynik}")
+            print(f"Wynik: {wynik}")
         
         case "2":
             def naFarenheit(c):
@@ -54,10 +54,27 @@ def main():
             
             if operacja == "c":
                 wynik = naFarenheit(temp)
+                print(f"{temp}°C = {wynik}°F")
             elif operacja == "f":
                 wynik = naCelcjusz(temp)
+                print(f"{temp}°F = {wynik}°C")
+            
+        case "3":
+            ileOcen = int(input("Podaj liczbe ocen: "))
+            srednia = 0
+            
+            for x in range(0, ileOcen):
+                ocena = float(input(f"Podaj ocene {x+1}: "))
+                while ocena not in range(1, 7):
+                    ocena = float(input("Nieprawidlowa ocena, podaj ponownie: "))
+                srednia = srednia + ocena
+            srednia = srednia / ileOcen
+            
+            print(f"Srednia: {srednia:.2f}")
+            if srednia < 3:
+                print("Uczen nie zdal.")
+            else:
+                print("Uczen zdal.")
 
-            print(f"Wynik = {wynik}")
- 
 if __name__ == "__main__": 
     main()
